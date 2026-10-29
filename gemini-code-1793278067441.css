@@ -1,0 +1,110 @@
+/* 全局樣式設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* 導覽列 Navigation */
+header {
+    background-color: #1e293b;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #38bdf8;
+}
+
+/* 主要內容區域容器 */
+.container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* 標題與按鈕 */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0284c7;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0369a1;
+}
+
+/* 表單樣式 */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* 頁尾 Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e2e8f0;
+    color: #64748b;
+    margin-top: 4rem;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 | 創智科技</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">創智科技 NovaTech</div>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">公司介紹</a>
+            <a href="contact.html" class="active">聯絡我們</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>聯絡我們</h1>
+        <p>若有任何合作需求或產品諮詢，請填寫以下表單，我們將會有專人儘速與您聯繫。</p>
+
+        <form id="contact-form" style="margin-top: 2rem;">
+            <div class="form-group">
+                <label for="user_name">姓名</label>
+                <input type="text" id="user_name" name="user_name" placeholder="請輸入您的姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label for="user_phone">電話</label>
+                <input type="tel" id="user_phone" name="user_phone" placeholder="例如：0912-345-678" required>
+            </div>
+
+            <div class="form-group">
+                <label for="user_email">E-mail</label>
+                <input type="email" id="user_email" name="user_email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">聯絡內容</label>
+                <textarea id="message" name="message" placeholder="請填寫您的諮詢內容..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="submit-btn">送出訊息</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 創智科技 NovaTech Inc. 版權所有</p>
+    </footer>
+
+    <!-- EmailJS 發送腳本 -->
+    <script>
+        // 1. 初始化 EmailJS（請在此填入你自己的 Public Key）
+        emailjs.init("YOUR_PUBLIC_KEY");
+
+        // 2. 監聽表單提交事件
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = '傳送中...';
+            submitBtn.disabled = true;
+
+            // 請填入你的 Service ID 與 Template ID
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function() {
+                    alert('訊息已成功送出！我們將儘快回覆您。');
+                    document.getElementById('contact-form').reset();
+                    submitBtn.innerText = '送出訊息';
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    alert('傳送失敗，請稍後再試。錯誤訊息：' + JSON.stringify(error));
+                    submitBtn.innerText = '送出訊息';
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
